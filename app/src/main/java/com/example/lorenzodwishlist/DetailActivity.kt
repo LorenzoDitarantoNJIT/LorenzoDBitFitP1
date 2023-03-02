@@ -17,17 +17,14 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.wishlistmaker)
-
         val button = findViewById<Button>(R.id.submitButton)
-        val etLink = findViewById<EditText>(R.id.editTextUrl)
-        val etMoney = findViewById<EditText>(R.id.editTextPrice)
-        val etName = findViewById<EditText>(R.id.editTextName)
-
+        val Link = findViewById<EditText>(R.id.editTextUrl)
+        val Money = findViewById<EditText>(R.id.editTextPrice)
+        val Name = findViewById<EditText>(R.id.editTextName)
         button.setOnClickListener{
-
-            val link = etLink.getText().toString()
-            val money = etMoney.getText().toString()
-            val Tname = etName.getText().toString()
+            val link = Link.getText().toString()
+            val money = Money.getText().toString()
+            val Tname = Name.getText().toString()
                 lifecycleScope.launch(Dispatchers.IO)
                 {
                     (application as ItemApplication).db.itemDao().insertAll(
